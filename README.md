@@ -25,11 +25,11 @@ READMEに日記を書き、一定の期間経過後にバックログする。
 前職で作っていたソフトは生産装置だったので、「決して装置が止まらぬように。顧客の製品に被害を与えぬように」という観点では、非常に優れていたと今更ながら感じた。考え方に筋が通っていた。当時は、その良さに気づいていなかった。
 
 ### 私生活
-雑誌の仕事が舞い込んできた。思いがけぬプレゼントに舞い上がった。が、息子に振り回されて、手を動かす時間が取れない。気合が足りないのだ。ただ、締切までの期間が1ヶ月しかないのはキツイ。2ヶ月あれば余裕だろう。    
+- 雑誌の仕事が舞い込んできた。思いがけぬプレゼントに舞い上がった。が、息子に振り回されて、手を動かす時間が取れない。気合が足りないのだ。ただ、締切までの期間が1ヶ月しかないのはキツイ。2ヶ月あれば余裕だろう。    
   
-フルリモートなので、音楽を聴く機会が増え、少し楽曲を買った。Michael KiskeのEagle Fly Freeが聴きたかったのでHelloweenのライブ音源、スラッシュメタルの開拓として[Darkness Descends（Dark Angel）](https://www.amazon.co.jp/gp/product/B0773F5534/ref=ppx_yo_dt_b_d_asin_title_o00?ie=UTF8&psc=1)と[	
+- フルリモートなので、音楽を聴く機会が増え、少し楽曲を買った。Michael KiskeのEagle Fly Freeが聴きたかったのでHelloweenのライブ音源、スラッシュメタルの開拓として[Darkness Descends（Dark Angel）](https://www.amazon.co.jp/gp/product/B0773F5534/ref=ppx_yo_dt_b_d_asin_title_o00?ie=UTF8&psc=1)と[	
 Forbidden Evil(Forbidden)](https://www.amazon.co.jp/gp/product/B076NFNY12/ref=ppx_yo_dt_b_d_asin_title_o01?ie=UTF8&psc=1)を買った。スラッシュ系は、ちょっと音が悪い。純度の高いスラッシュは、最近発売された音源の方が音が良いので（ザクザクなリフでノレるので）、古いのより新し目を買った方が良いかなと感じた。  
 
-OSS開発では、DBを操作するCLIコマンドを考えている。着手は6月ぐらいと思われる。内容は、[Common SQL Environment](https://www.vector.co.jp/soft/win95/business/se180732.html)のTUI版だ。少し規模が大きいので、事前調査もしている。UIには、[Charm](https://charm.sh/)を採用するつもりだ。ただ、表を描画（かつマウスによるカラム選択）できるかどうかが分かってない。  
+- OSS開発では、DBを操作するCLIコマンドを考えている。着手は6月ぐらいと思われる。内容は、[Common SQL Environment](https://www.vector.co.jp/soft/win95/business/se180732.html)のTUI版だ。少し規模が大きいので、事前調査もしている。UIには、[Charm](https://charm.sh/)を採用するつもりだ。ただ、表を描画（かつマウスによるカラム選択）できるかどうかが分かってない。  
 
-眠い。日記を書いている現在も眠い。最近、眠る時は地面に落ちていく感覚と共に、意識を失う。目が覚める時は、身体が上手く動かない。ゆっくり起き上がる。
+- 眠い。日記を書いている現在も眠い。最近、眠る時は地面に落ちていく感覚と共に、意識を失う。目が覚める時は、身体が上手く動かない。ゆっくり起き上がる。
