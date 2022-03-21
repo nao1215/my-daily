@@ -65,3 +65,34 @@ Forbidden Evil（Forbidden）](https://www.amazon.co.jp/gp/product/B076NFNY12/re
 |経路列挙|Unix Path形式で分かりやすい<br>パターンマッチングで子孫、先祖を取得可能<br>ソートが楽|パスとノードが最新であると保証できない<br>深さに制約がある|
 |入れ子集合|サブツリーに対する迅速かつ容易なクエリが可能|ノードの挿入や移動に計算が発生|
 |閉包テーブル|ノードが複数のツリーに所属可能|階層が深くなると、レコードが増える|
+
+### Golang DB周りの整理
+- [kayac/ddl-maker](https://github.com/kayac/ddl-maker)：Golangの構造体（+ タグ）からDDLを生成する。規模が小さい割に、実用性がある。分かりやすい。MySQLだけに対応。PostgreSQLに対応しないのは開発元（カヤック内）で需要がないからだと思われる。
+- [schemalex/schemalex](https://github.com/schemalex/schemalex)：DBマイグレーションツール。２つのMySQLのスキーマの差分(ALTER)を表示するツール。MySQLのみ対応。ALTER文の生成しかしないため、DBにSQLを適用する処理は別途必要。比較は、「sql <-> DBテーブル」「sql <-> gitコミットハッシュ」「sql <-> 標準入力」の3パターンでできる。
+- [schemalex/git-schemalex](https://github.com/schemalex/git-schemalex)：「migrationを実行した際のsqlファイルのコミットハッシュ」と「最新のSQLファイル」との差分をDBに反映する。
+- [k0kubun/sqldef](https://github.com/k0kubun/sqldef)：CREATE文と現在のスキーマを比較して、自動的にALTERやCREATEを作成し、実行する。MySQL／PostgreSQL／SQLite3／SQL Server対応。様々な企業がコントリビュートした形跡（スライドなど）がある。生SQL管理なので、DSL不要で学習コストが低い。
+- [go-gorm/gorm](https://github.com/go-gorm/gorm)：Object-Relational Mappingツール。注意しないとハマる。例えば、idの値が指定されていないとテーブル全件のDeleteを試みる。コード記述量は減るが、意図しない挙動もする。また、複数テーブルを編集する時のお作法に対する学習コストがある。
+- [dropbox/godropbox](https://github.com/dropbox/godropbox/tree/master/database/sqlbuilder)：クエリビルダー。MySQLのみ対応。プリペアドステートメントなし。更新も止まっている。
+  ```
+  query, err := t.Select(t.C("id"), t.C("hoge")).Where(sb.EqL(t.C("id"), 0)).String("test")
+
+  // query == "SELECT `HOGE`.`id`,`HOGE`.`hoge` FROM `test`.`HOGE` WHERE `HOGE`.`id`=0"
+  ```
+- [Masterminds/squirrel](https://github.com/Masterminds/squirrel)：クエリビルダー。複雑なサブクエリに対応できない。
+  ```
+  subquery := sq.Select("id").From("users").Where(sq.Eq{"id": id})
+  sql, args, err := subquery.Prefix("SELECT EXISTS (").Suffix(")").ToSql()
+  // SELECT EXISTS ( SELECT id FROM users WHERE id = ? ) [hoge] <nil>
+  ```
+- [doug-martin/goqu](https://github.com/doug-martin/goqu)：クエリビルダー。
+  ```
+  ds := goqu.Insert("user").
+	Cols("first_name", "last_name").
+	Vals(
+		goqu.Vals{"Greg", "Farley"},
+		goqu.Vals{"Jimmy", "Stewart"},
+		goqu.Vals{"Jeff", "Jeffers"},
+	)
+    insertSQL, args, _ := ds.ToSQL()
+  ```
+ 
