@@ -95,4 +95,35 @@ Forbidden Evil（Forbidden）](https://www.amazon.co.jp/gp/product/B076NFNY12/re
 	)
     insertSQL, args, _ := ds.ToSQL()
   ```
- 
+
+### OSS開発
+- 雑誌の記事を書いている最中に、POSIXコマンド一覧を調べるのが面倒だったため、[posixerコマンド](https://github.com/nao1215/posixer)を作った。今後、POSIXに関係する機能を詰め込めるように、インターフェース的な名称（〜er）にした。結果を表で出力する理由は、[olekukonko/tablewriter](https://github.com/olekukonko/tablewriter)を使いたかったから。1時間で完成させるつもりが、2時間半ぐらいかかってしまった。
+  ```
+  $ posixer check
+  +------------+----------------+----------------+
+  |    NAME    |      TYPE      | IN YOUR SYSTEM |
+  +------------+----------------+----------------+
+  | alias      | shell built-in | installed      |
+  | bg         | shell built-in | installed      |
+  | cd         | shell built-in | installed      |
+     :
+     :
+  | wait       | shell built-in | installed      |
+  | ar         | required       | installed      |
+  | at         | required       | installed      |
+  | awk        | required       | installed      |
+  | basename   | required       | installed      |
+     :
+     :
+  | mesg       | required       | installed      |
+  | sact       | optional       | not installed  |
+  | sccs       | optional       | not installed  |
+  | rmdel      | optional       | not installed  |
+     :
+     :
+  | what       | optional       | not installed  |
+  | yacc       | optional       | installed      |
+  | zcat       | optional       | installed      |
+  +------------+----------------+----------------+
+  ```
+- [ubumeコマンド](https://github.com/nao1215/ubume)が生成するGoReleaser周りが派手にバグってた。GitHubアクションは手動テストできないから発見が遅れてしまった。そもそも、設計が悪い。ファイルの内容をソースコードにベタ書きしているから、ymlファイルのインデントがズレる。出力対象のファイルは、embedすべき。でも、直す気力がない。
